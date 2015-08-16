@@ -1,0 +1,144 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "2798ac8f5e4dfe682b8048df9fe2054b",
+    "packages": [
+        {
+            "name": "bobbingwide/bobbing",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobbingwide/bobbing.git",
+                "reference": "0401fc0f358e959da44e0bef9912e3c76c3ebd92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobbingwide/bobbing/zipball/0401fc0f358e959da44e0bef9912e3c76c3ebd92",
+                "reference": "0401fc0f358e959da44e0bef9912e3c76c3ebd92",
+                "shasum": ""
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Herb Miller",
+                    "email": "herb@bobbingwide.com"
+                }
+            ],
+            "description": "sample plugin dependent upon oik and bbboing",
+            "support": {
+                "source": "https://github.com/bobbingwide/bobbing/tree/v1.2.1",
+                "issues": "https://github.com/bobbingwide/bobbing/issues"
+            },
+            "time": "2015-08-10 17:28:48"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.0.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "shasum": ""
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "Composer\\Installers\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\Installers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "http://composer.github.com/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Hurad",
+                "MODX Evo",
+                "OXID",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "elgg",
+                "fuelphp",
+                "grav",
+                "installer",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lithium",
+                "magento",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "moodle",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "zend",
+                "zikula"
+            ],
+            "time": "2015-02-18 17:17:01"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

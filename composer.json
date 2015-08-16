@@ -1,0 +1,15 @@
+{
+    "name": "bobbingwide/oik-fum",
+    "description": "Flexible Update Manager",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Herb Miller",
+            "email": "herb@bobbingwide.com"
+        }
+    ],
+    "require": {
+			"composer/installers": "~1.0"
+		}
+}
