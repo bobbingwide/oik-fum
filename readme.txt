@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: oik, update manager 
 Requires at least: 4.2
-Tested up to: 4.3-RC1
-Stable tag: 1.2.1
+Tested up to: 4.3.1
+Stable tag: 1.2.0
 
 oik flexible update manager
 
@@ -47,7 +47,7 @@ It directs update requests for certain plugins to the oik-plugins server(s).
 1. None
 
 == Upgrade Notice ==
-= 1.2.1 =
+= 1.2.0 =
 Early days yet.
 
 = 1.2 =
@@ -67,7 +67,7 @@ Testing to see if this is "greater" than 1.1.0802.1 - note the length
 
 
 == Changelog ==
-= 1.2.1 =
+= 1.2.0 =
 * Changed: Now uses semantic versioning
 * Changed: No longer depends on oik
 * Changed: Tested with WordPress 4.2 and above

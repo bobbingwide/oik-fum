@@ -8,7 +8,7 @@ Author: bobbingwide
 Author URI: http://www.bobbingwide.com
 License: GPL2
 
-    Copyright 2012-2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2016 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -26,6 +26,8 @@ License: GPL2
 
 */
 
+oikf_add_filters();
+
 /**
  * Implement "admin_menu" for oik-fum
  * 
@@ -42,6 +44,7 @@ function oikf_admin_menu() {
 	} else {
 		//echo "oik_lib_loaded not happeneed yet";
 	}
+	add_filter( "upgrader_package_options", "oikf_upgrader_package_options" );
 }
 
 /**
@@ -73,18 +76,18 @@ function oikf_oik_lib_loaded( $lib ) {
 function oikf_admin_setup() {
 	oik_lib_fallback( __DIR__ . "/vendor/bobbingwide/oik_fum" );
 	$bobbfunc = oik_require_lib( "bobbfunc" );
-	c( $bobbfunc );
+	//c( $bobbfunc );
 	$bobbforms = oik_require_lib( "bobbforms" );
-	c( $bobbforms );
+	//c( $bobbforms );
 	$oik_admin = oik_require_lib( "oik-admin" );
-	c( $oik_admin );
+	//c( $oik_admin );
 	$oik_fum = oik_require_lib( "oik_fum" );
-	c( $oik_fum );
-	bw_trace2( $oik_fum, "oik_fum library?" );
+	//c( $oik_fum );
+	bw_trace2( $oik_fum, "oik_fum library?", false, BW_TRACE_DEBUG );
 	if ( $oik_fum && !is_wp_error( $oik_fum ) ) {
 		$oik_fum_admin = oik_require_file( 'admin/oik-fum.php', "oik_fum" );
-		bw_trace2( $oik_fum_admin, "oik_fum_admin?" );
-		c( $oik_fum_admin );
+		bw_trace2( $oik_fum_admin, "oik_fum_admin?", false, BW_TRACE_DEBUG );
+		//c( $oik_fum_admin );
 		//echo $oik_fum_admin;
 		if ( $oik_fum_admin ) {
 			oik_fum_add_page();
@@ -130,8 +133,8 @@ function oik_fum_query_libs( $libraries ) {
 	$libraries[] = new OIK_lib( $lib_args2 );
 	$lib_args2 = array( 'library' => "bobbingwide/oik_depends", "deps" => null, "plugin" => "oik-fum", "file" => "oik-depends.php" );
 	$libraries[] = new OIK_lib( $lib_args2 );
-	bw_trace2( $libraries, "oik-fum libraries" );
-	bw_backtrace();
+	bw_trace2( $libraries, "oik-fum libraries", false, BW_TRACE_VERBOSE );
+	bw_backtrace( BW_TRACE_VERBOSE );
 	return( $libraries );
 }
 
@@ -153,7 +156,7 @@ function oikf_oik_admin_menu() {
  */	
 
 function oikf_site_transient_update_themes( $args ) {
-  bw_trace2( $args, "ostut" );
+  bw_trace2( $args, "ostut", false, BW_TRACE_DEBUG );
   return( $args );
 }
 
@@ -161,7 +164,7 @@ function oikf_site_transient_update_themes( $args ) {
  * Implement "wp_update_themes" action for oik-fum
  */ 
 function oikf_update_themes( $args ) {
-  bw_trace2();
+  bw_trace2( null, null, true, BW_TRACE_DEBUG );
 }
 
 /**
@@ -192,7 +195,7 @@ function oikf_admin_notices() {
     }
   } 
 	if ( !function_exists( "oik_require_lib" ) ) { 
-		$depends = "oik:3.0.0|oik-lib:0.0.2";
+		$depends = "oik:3.0.0|oik-lib:0.0.2|oik-bwtrace:2.0.1";
 		oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 	}
 }
@@ -212,7 +215,30 @@ function oikf_add_filters() {
 	add_action( "admin_notices", "oikf_admin_notices" );
 }
 
-oikf_add_filters();
+
+/**
+ * Implement "upgrader_package_options" for oik-fum
+ *
+ * {@link https://core.trac.wordpress.org/ticket/27754}
+ * 
+ * @param array $options {
+ *     Options used by the upgrader. 
+ * 
+ *     @type string $package                     Package for update. 
+ *     @type string $destination                 Update location. 
+ *     @type bool   $clear_destination           Clear the destination resource. 
+ *     @type bool   $clear_working               Clear the working resource. 
+ *     @type bool   $abort_if_destination_exists Abort if the Destination directory exists. 
+ *     @type bool   $is_multi                    Whether the upgrader is running multiple times. 
+ *     @type array  $hook_extra                  Extra hook arguments. 
+ * } 
+ * @return array - updated with "abort_if_destination_exists" to false
+ */
+function oikf_upgrader_package_options( $options ) {
+	$options['abort_if_destination_exists'] = false;
+	//bw_trace2();
+	return( $options );
+}
 
 
 
