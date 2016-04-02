@@ -3,7 +3,7 @@
 Plugin Name: oik-fum
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik-fum
 Description: oik flexible update manager
-Version: 1.2.0
+Version: 1.2.1
 Author: bobbingwide
 Author URI: http://www.bobbingwide.com
 License: GPL2
@@ -154,7 +154,6 @@ function oikf_oik_admin_menu() {
 /**
  * Implement "pre_site_transient_update_themes" filter for oik-fum
  */	
-
 function oikf_site_transient_update_themes( $args ) {
   bw_trace2( $args, "ostut", false, BW_TRACE_DEBUG );
   return( $args );
@@ -205,7 +204,6 @@ function oikf_admin_notices() {
  * 
  */	
 function oikf_add_filters() {
-
 	add_filter( "oik_query_libs", "oik_fum_query_libs" );
   add_action( "oik_admin_menu", "oikf_oik_admin_menu" );
   //add_filter( "pre_site_transient_update_themes", "oikf_site_transient_update_themes" );
@@ -215,11 +213,12 @@ function oikf_add_filters() {
 	add_action( "admin_notices", "oikf_admin_notices" );
 }
 
-
 /**
  * Implement "upgrader_package_options" for oik-fum
  *
  * {@link https://core.trac.wordpress.org/ticket/27754}
+ *
+ * This code is the same as in the allow-reinstalls plugin
  * 
  * @param array $options {
  *     Options used by the upgrader. 
