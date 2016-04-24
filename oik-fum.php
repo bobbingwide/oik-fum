@@ -152,18 +152,36 @@ function oikf_oik_admin_menu() {
 }
 
 /**
- * Implement "pre_site_transient_update_themes" filter for oik-fum
+ * Implement "pre_set_site_transient_update_themes" filter for oik-fum
+ * 
+ * 
  */	
-function oikf_site_transient_update_themes( $args ) {
-  bw_trace2( $args, "ostut", false, BW_TRACE_DEBUG );
-  return( $args );
+function oikf_pre_set_site_transient_update_themes( $value, $transient ) {
+  bw_trace2();
+	bw_backtrace();
+  return( $value );
+}
+
+/**
+ * Implement "pre_set_site_transient_update_plugins" filter for oik-fum
+ * 
+ * 
+ */	
+function oikf_pre_set_site_transient_update_plugins( $value, $transient ) {
+  bw_trace2();
+	bw_backtrace();
+  return( $value );
 }
 
 /**
  * Implement "wp_update_themes" action for oik-fum
+ *
+ * @TODO When does this happen?
  */ 
 function oikf_update_themes( $args ) {
   bw_trace2( null, null, true, BW_TRACE_DEBUG );
+	bw_backtrace();
+	gob();
 }
 
 /**
@@ -206,11 +224,14 @@ function oikf_admin_notices() {
 function oikf_add_filters() {
 	add_filter( "oik_query_libs", "oik_fum_query_libs" );
   add_action( "oik_admin_menu", "oikf_oik_admin_menu" );
-  //add_filter( "pre_site_transient_update_themes", "oikf_site_transient_update_themes" );
+  add_filter( "pre_set_site_transient_update_themes", "oikf_pre_set_site_transient_update_themes", 10, 2 );
+  add_filter( "pre_set_site_transient_update_plugins", "oikf_pre_set_site_transient_update_plugins", 10, 2 );
   //add_action( "wp_update_themes", "oikf_update_themes" );
 	add_action( "oik_lib_loaded", "oikf_oik_lib_loaded" );
 	add_action( "admin_menu", "oikf_admin_menu", 11 );
 	add_action( "admin_notices", "oikf_admin_notices" );
+	add_filter( "auto_update_plugin", "oikf_auto_update_plugin" );
+	add_filter( "auto_update_theme", "oikf_auto_update_theme" );
 }
 
 /**
@@ -237,6 +258,36 @@ function oikf_upgrader_package_options( $options ) {
 	$options['abort_if_destination_exists'] = false;
 	//bw_trace2();
 	return( $options );
+}
+
+/**
+ * Implement "auto_update_plugin" for oik-fum
+ * 
+ * Return true if you want auto updates to be applied to the plugin
+ * 
+ * @param bool $update 
+ * @param object $item 
+ * @return bool 
+ */
+function oikf_auto_update_plugin( $update, $item ) {
+	bw_trace2();
+	bw_backtrace();
+	gob();
+}
+
+/**
+ * Implement "auto_update_theme" for oik-fum
+ * 
+ * Return true if you want auto updates to be applied to the theme
+ * 
+ * @param bool $update 
+ * @param object $item 
+ * @return bool 
+ */
+function oikf_auto_update_theme( $update, $item ) {
+	bw_trace2();
+	bw_backtrace();
+	gob();
 }
 
 
